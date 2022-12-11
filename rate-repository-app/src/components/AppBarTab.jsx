@@ -1,14 +1,18 @@
 import React from "react";
 import Text from "./Text";
-import { Pressable } from "react-native";
+import { StyleSheet } from "react-native";
+
+const styles = StyleSheet.create({
+  container: {
+    padding: 5,
+  },
+});
 
 const AppBarTab = ({ children }) => {
   return (
-    <Pressable onPress={() => console.log("pressed")}>
-      <Text fontWeight="bold" color="textWhite">
-        {children}
-      </Text>
-    </Pressable>
+    <Text style={styles.container} fontWeight="bold" color="textWhite">
+      {children}
+    </Text>
   );
 };
 
