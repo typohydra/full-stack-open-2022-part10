@@ -7,14 +7,14 @@ import Text from "./Text";
 const styles = StyleSheet.create({
   formContainer: {
     backgroundColor: theme.colors.primaryWhite,
-    padding: 10,
+    padding: 20,
   },
   submitButtom: {
     backgroundColor: theme.colors.primary,
     padding: 20,
     alignItems: "center",
     borderRadius: 5,
-    margin: 10,
+    marginVertical: 10,
   },
 });
 
