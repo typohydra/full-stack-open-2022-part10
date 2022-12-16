@@ -1,7 +1,8 @@
-import { View, Image, StyleSheet } from "react-native";
+import { View, Image, StyleSheet, Pressable, Linking } from "react-native";
 import theme from "../theme";
 import RepositoryItemInfo from "./RepositoryItemInfo";
 import RepositoryItemStats from "./RepositoryItemStats";
+import Text from "./Text";
 
 const styles = StyleSheet.create({
   flexContainer: {
@@ -19,9 +20,16 @@ const styles = StyleSheet.create({
     height: 50,
     borderRadius: 5,
   },
+  githubButton: {
+    backgroundColor: theme.colors.primary,
+    borderRadius: 5,
+    padding: 20,
+    marginTop: 10,
+    alignItems: "center",
+  },
 });
 
-const RepositoryItem = ({ repository }) => {
+const RepositoryItem = ({ repository, singleRepoView = false }) => {
   return (
     <View testID="repositoryItem" style={styles.repoContainer}>
       <View style={styles.flexContainer}>
@@ -41,6 +49,16 @@ const RepositoryItem = ({ repository }) => {
         reviewCount={repository.reviewCount}
         ratingAverage={repository.ratingAverage}
       />
+      {singleRepoView && (
+        <Pressable
+          onPress={() => Linking.openURL(repository.url)}
+          style={styles.githubButton}
+        >
+          <Text color="textWhite" fontWeight="bold">
+            Open In GitHub
+          </Text>
+        </Pressable>
+      )}
     </View>
   );
 };
